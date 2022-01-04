@@ -1,0 +1,56 @@
+@startuml
+
+title Deliveroo - Class Diagram
+
+
+
+class System {
+  string name
+  string order
+  str/int usernameAndPassword
+  getName()
+  getOrder()
+  getAddress()
+  getUsernameAndPassword()
+
+  }
+  
+  
+class Customer {
+  string name
+  string address
+  string foodOrder
+  str/int contactDetails
+  str/int cardDetails
+  string customersAddress
+  addOrder()
+  addQauntity()
+  addcardDetails()
+
+}
+
+class deliverooDriver {
+  string name
+  str/int orderID
+  str/int customerAddress
+
+}
+
+class Employee{
+  string customersOrder
+  getcustomersOrder()
+}
+
+class Manager {
+  interger orderNumber
+  getOrderNumber()
+  }
+
+System "1" -left-> "1" Manager : is proccessed and sent to
+Customer "1" -up-> "1" System : is inputted to
+Employee "x" -down-> "1" deliverooDriver : is passed to
+Manager "1" -left-> "1" Employee : is allocated to by
+deliverooDriver "x" -right-> "1" Customer :    is delivered to
+
+
+@enduml

@@ -1,0 +1,47 @@
+@startuml
+
+title Directions - Use Case Diagram
+
+left to right direction
+
+actor Customer
+actor DeliveryDriver
+actor Employees
+actor Manager
+actor System
+
+Customer -> (Name)
+Customer -> (Number)
+Customer -> (Adress)
+Customer -> (foodOrder)
+
+
+System -> (Login)
+System -> (displaysMenu)
+System -> (addItemsToBasket)
+System -> (updatesItems)
+System -> (processPaymentsAtCheckout)
+System -> (confirmsOrder)
+System -> (notifiesCustomer)
+
+
+DeliveryDriver -> (driverName)
+DeliveryDriver -> (orderNumber)
+DeliveryDriver -> (customerdetails)
+DeliveryDriver -> (communicatesWithCustomer)
+
+
+
+Employees -> (confirmsCustomerOrder)
+Employees -> (preparesFood)
+Employees -> (updateSytemWhenComp)
+Employees -> (notifyDriver)
+
+
+Manager -> (allocateOrdersToEmployees)
+Manager -> (overseeProcess)
+
+
+
+
+@enduml

@@ -1,0 +1,33 @@
+@startuml
+
+title "Deliveroo - Sequence Diagram for successful sign up"
+
+actor Customer
+
+Customer -> App_UI : enter address
+App_UI -> App_API : search for restaurants
+App_API --> App_UI : returnResults
+Customer -> App_UI : signup or login
+App_UI -> Customer: prompt for preferred login method
+Customer -> App_UI : submit email address 
+Customer -> App_UI : verify phone number 
+App_UI -> Customer: prompt for username and password
+Customer -> App_UI : submit username and password
+App_UI -> App_API : createNewAccount(username, password)
+App_API -> Account: create new 
+
+database Database
+
+App_API -> Database : save(account)
+
+Database --> Account
+Account --> App_API
+App_API --> App_UI
+
+App_UI --> Customer: signup confirmed
+
+App_UI -> Customer: select cuisine/restaurant
+
+
+
+@enduml

@@ -1,0 +1,55 @@
+@startuml
+
+left to right direction
+
+Actor User1
+Actor User2
+Actor Scooter
+Actor Paypal
+Actor Card
+Actor AppleOrGooglePay
+Actor CustomerSupportAssistant
+
+
+
+rectangle "User App" {
+  usecase (Register/Login to system, permitted/not permitted)
+  usecase (Enter location)
+  usecase (Choose close location)
+  usecase (Choose payment method)
+  usecase (Cancel booking )
+  usecase (Contact customer support)
+  usecase (troubleshooting methods)
+  usecase (summary)
+}
+
+  User1 --> (Register/Login to system, permitted/not permitted)
+  User2 --> (Register/Login to system, permitted/not permitted)
+  User1 --> (Enter location)
+  User1 --> (Choose close location)
+  User1 --> (Choose payment method)
+  User1 --> (Cancel booking )
+  User1 --> (Contact customer support)
+  (Choose payment method) -->  Paypal
+  (Choose payment method) --> AppleOrGooglePay
+  (Choose payment method) --> Card
+  User1 --> (troubleshooting methods)
+  (troubleshooting methods) -->  CustomerSupportAssistant
+  
+
+rectangle "ScooterSystem" {
+  usecase (battery percentage)
+  usecase (speed level)
+  usecase (mile coverage)
+}
+  
+  Scooter --> (battery percentage)
+  Scooter --> (speed level)
+  Scooter --> (mile coverage)
+  (Register/Login to system, permitted/not permitted) --> Scooter
+  (summary) --> Scooter
+  
+
+
+
+@enduml

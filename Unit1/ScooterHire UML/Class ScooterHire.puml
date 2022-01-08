@@ -1,0 +1,68 @@
+@startuml
+
+title Scooter Hire - Class Diagram
+
+class ScooterAppVendor {
+  name; Lime, Dott, Tier
+} 
+
+class ScooterApp {
+  city
+  borough
+  usernameAndPassword
+  summary
+  payment
+  customerService
+}
+
+class Scooter{
+barcode
+health status
+fullyCharged()
+aboveSpeedLimit()
+endOfBorough()
+}
+
+class Total {
+  calculateDuration()
+  calculateCost()
+}
+class User {
+  string name
+  interger D.O.B
+  18AndOver()
+  
+}
+
+class CustomerSupportAssistant{
+raiseTicket()
+}
+
+class Maintenance
+
+class PaymentMethod
+class PaypalPayment
+class CardPayment
+class AppleOrGooglePayPayment
+
+
+ScooterApp -up- "1" ScooterAppVendor : Choose scooter provider
+ScooterApp <-right-> "1" User : enter details
+ScooterApp -down- "1" Scooter : connect
+Scooter -right- "1" Total: overallTrip
+User -right- "1" PaymentMethod: choose payment
+User -up- "1" CustomerSupportAssistant: can reach out to
+CustomerSupportAssistant -right- "1" Maintenance: can escalate to
+
+
+
+
+PaymentMethod <|-down- PaypalPayment
+PaymentMethod <|-down- CardPayment
+PaymentMethod <|-down- AppleOrGooglePayPayment
+
+
+
+
+
+@enduml

@@ -1,0 +1,49 @@
+@startuml
+
+title "Scooter Hire - Sequence Diagram for search for a Restaurant"
+
+actor UserOne
+actor UserTwo
+
+
+box "Scooter App front-end" #LightBlue
+participant App_UI
+end box
+
+
+App_UI -> UserOne: prompt for signup
+UserOne -> App_UI : enter name, D.O.B and age
+App_UI -> App_API: calculates user1 age
+App_API -> Database: stores user1 details
+Database --> App_UI: confirms details stored
+App_UI -> UserOne: prompts to create username and password 
+UserOne -> App_UI : submit username and password
+App_UI -> App_API : createNewAccount(username, password)
+App_API -> Database : save(account)
+App_UI-> UserOne:enter city and borugh
+UserOne --> App_UI:
+App_UI -> App_API : searches for location
+App_API -> App_UI: selects matching locations
+App_UI -> UserOne: Location found, scan barcode on scooter
+UserOne -> App_UI: *scans barcode*
+App_UI-> App_API: search for scooter
+App_API --> Database : finds scooter,stores scopter info, on user account
+
+box "Scooter App back-end" #Pink
+participant App_API
+end box
+
+    
+        alt age requirements not met
+        App_UI -> UserTwo: prompt for signup
+        UserTwo -> App_UI : enter name, D.O.B and age
+        App_UI -> App_API: calculates user2 age
+        App_API -> App_API: requirements not met
+        App_UI -> UserTwo: you have to 18+ to register
+        
+    
+        end
+      
+       
+
+@enduml

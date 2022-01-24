@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "sequelize": "^6.14.0",
+    "sqlite3": "^5.0.2",
+    "jest": "^27.4.7"
+  },
+  "name": "sql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:report": "jest --coverage=true"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
